@@ -10,27 +10,27 @@ public class Test {
     //Potere potere1 = new Potere("Amministratore"); 
     //Potere potere2 = new Potere("User"); 
     //User user1 = new User("Alessandro", "D'Angelo", "AlessandroXXV", potere1); 
-    
+
     static List<User> listaUtenti = new ArrayList<>();
 
     public static void main(String[] args) {
         Potere potere1 = new Potere("Amministratore");
         Potere potere2 = new Potere("User");
         Admin admin = new Admin("Alessandro", "D'Angelo", "AlessandroXXV", "1234", potere1);
-        
+
         User user = new User("Riccardo", "D'Angelo", "Rick", "1234", potere2);
         listaUtenti.add(user);
         accessoAlSito();
-        
+
 
 
     }
 
-    
+
 
     static void accessoAlSito()
     {
-        Scanner scanner = new Scanner(System.in); 
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Ciao utente, se hai già un account inserisci UserName e Password, \n se sei nuovo registrati ");
         System.out.println("Effettua login --> 1");
         System.out.println("Effettua registrazione --> 2");
@@ -60,7 +60,7 @@ public class Test {
         System.out.print("Password: ");
         String password = scanner.nextLine();
 
-        if(.getNome().equals(username) && password.equals("1234"))
+        if(username.equals("AlessandroXXV") && password.equals("1234"))
         {
             System.out.println("Accesso ADMIN effettuato");
             operazioniAdmin();
@@ -93,7 +93,7 @@ public class Test {
         String password = scanner.nextLine();
         Potere potere1 = new Potere("User");
 
-        User user = new User(nome, cognome, username, password, potere1); 
+        User user = new User(nome, cognome, username, password, potere1);
         listaUtenti.add(user);
         System.out.println("Registrazione completata");
     }
