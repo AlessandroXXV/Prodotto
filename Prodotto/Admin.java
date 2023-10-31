@@ -9,7 +9,6 @@ public class Admin {
     private Potere potere;
 
 
-
     public Admin(String nome, String cognome, String username, String password, Potere potere) {
         this.nome = nome;
         this.cognome = cognome;
@@ -31,7 +30,7 @@ public class Admin {
 
 
 
-    
+
     public String getNome() {
         return nome;
     }
@@ -57,3 +56,6 @@ public class Admin {
         this.potere = potere;
     }
 }
+
+
+
