@@ -1,5 +1,7 @@
 package Prodotto;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,9 +13,9 @@ public class Test {
     
     static List<User> listaUtenti = new ArrayList<User>();
     public static void main(String[] args) {
-        Potere potere1 = new Potere("Amministratore"); 
-        Potere potere2 = new Potere("User"); 
-        User user1 = new User("Alessandro", "D'Angelo", "AlessandroXXV", "1234", potere1); 
+        //Potere potere1 = new Potere("Amministratore"); 
+        //Potere potere2 = new Potere("User"); 
+        //Admin admin = new Admin("Alessandro", "D'ANgelo", "AlessandroXXV", "1234", potere1); 
         
         //static List<User> listaUtenti = new ArrayList<User>();
         
@@ -27,26 +29,23 @@ public class Test {
     {
         Scanner scanner = new Scanner(System.in); 
         System.out.println("Ciao utente, se hai già un account inserisci UserName e Password, \n se sei nuovo registrati ");
-        int logIn = 1; 
-        int registrati = 2; 
         System.out.println("Effettua login --> 1");
         System.out.println("Effettua registrazione --> 2");
         int scelta = scanner.nextInt();
 
         switch (scelta) {
             case 1:
-                LogIn();
+                LogIn(scanner);
                 break;
             case 2:
-                registrati(); 
+                registrati(scanner); 
                 break;
-        
         }
+        scanner.close();
     }
 
-    static void LogIn()
+    static void LogIn(Scanner scanner)
     {
-        Scanner scanner = new Scanner(System.in); 
         System.out.println("Inserisci username e password");
         System.out.println("Username: ");
         String username = scanner.nextLine();
@@ -58,16 +57,27 @@ public class Test {
             if(listaUtenti.get(i).getUsername().equals(username) && listaUtenti.get(i).getPassword().equals(password))
             {
                 System.out.println("Accesso effettuato");
-                break; 
-            }
-            else
-            {
-                System.out.println("Username o password errati");
-                break; 
+                return; 
             }
         }
+        System.out.println("Username o password errati");
+    }
 
+    static void registrati(Scanner scanner)
+    {
+        System.out.println("Inserisci nome, cognome, username e password");
+        System.out.println("Nome: ");
+        String nome = scanner.nextLine();
+        System.out.println("Cognome: ");
+        String cognome = scanner.nextLine();
+        System.out.println("Username: ");
+        String username = scanner.nextLine();
+        System.out.println("Password: ");
+        String password = scanner.nextLine();
+        Potere potere1 = new Potere("User");
 
+        User user = new User(nome, cognome, username, password, potere1); 
+        listaUtenti.add(user); 
     }
     
     static void registrati()
@@ -82,18 +92,11 @@ public class Test {
         String username = scanner.nextLine();
         System.out.println("Password: ");
         String password = scanner.nextLine();
-        //System.out.println("Sei un amministratore o un utente?");
-        //System.out.println("Amministratore --> 1");
-        //System.out.println("Utente --> 2");
-        //int scelta = scanner.nextInt();
+        Potere potere1 = new Potere("User");
+        //System.out.println("Potere: ");
+        //String potere = scanner.nextLine();
 
-        
-            
-        
-        Potere potere2 = new Potere("User"); 
-        User user2 = new User(nome, cognome, username, password); 
-        listaUtenti.add(user2);
-        System.out.println("Registrazione effettuata");
-        
+        User user = new User(nome, cognome, username, password, potere1); 
+        listaUtenti.add(user); 
     }
 }

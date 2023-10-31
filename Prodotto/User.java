@@ -6,7 +6,7 @@ public class User
     private String cognome;
     private String username; 
     private String password;
-    private String potere;
+    private Potere potere;
     
     
    
@@ -16,12 +16,12 @@ public class User
 
 
 
-    public User(String string, String string2, String username, String password, String potere) {
+    public User(String string, String string2, String username, String password, Potere potere1) {
         this.nome = string; 
         this.cognome = string2; 
         this.username = username;  
         this.password = password;
-        this.potere = potere;
+        this.potere = potere1;
     }
     
     
@@ -55,10 +55,10 @@ public class User
     public void setPassword(String password) {
         this.password = password;
     }
-     public String getPotere() {
+     public Potere getPotere() {
         return potere;
     }
-    public void setPotere(String potere) {
+    public void setPotere(Potere potere) {
         this.potere = potere;
     }
 }

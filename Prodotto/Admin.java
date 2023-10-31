@@ -5,14 +5,16 @@ public class Admin {
     private String nome; 
     private String cognome;
     private String username; 
+    private String password; 
     private Potere potere;
 
 
 
-    public Admin(String nome, String cognome, String username, Potere potere) {
+    public Admin(String nome, String cognome, String username, String password, Potere potere) {
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;
+        this.password = password;
         this.potere = potere;
     }
 
