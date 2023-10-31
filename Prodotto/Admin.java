@@ -1,25 +1,34 @@
-package Prodotto.Cliente; 
+package Prodotto;
 
-public class User 
-{
+public class Admin {
+    
     private String nome; 
     private String cognome;
     private String username; 
     private Potere potere;
 
-    public User(String string, String string2, String username, Potere potere1) {
-        this.nome = string; 
-        this.cognome = string2; 
-        this.username = username; 
-        this.potere = potere1; 
+
+
+    public Admin(String nome, String cognome, String username, Potere potere) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.username = username;
+        this.potere = potere;
     }
-    
-    
-    
-    
-    
-    
-    // GETTER E SETTER
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     public String getNome() {
         return nome;
@@ -33,16 +42,16 @@ public class User
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
-    public Potere getPotere() {
-        return potere;
-    }
-    public void setPotere(Potere potere) {
-        this.potere = potere;
-    }  
     public String getUsername() {
         return username;
     }
     public void setUsername(String username) {
         this.username = username;
+    }
+    public Potere getPotere() {
+        return potere;
+    }
+    public void setPotere(Potere potere) {
+        this.potere = potere;
     }
 }

@@ -1,4 +1,4 @@
-package Prodotto.Cliente;
+package Prodotto;
 
 public class Potere {
     String potere;
