@@ -7,18 +7,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Test {
-    //Potere potere1 = new Potere("Amministratore"); 
-    //Potere potere2 = new Potere("User"); 
-    //User user1 = new User("Alessandro", "D'Angelo", "AlessandroXXV", potere1); 
 
-    static List<User> listaUtenti = new ArrayList<>();
+
+
+    static ArrayList<User> listaUtenti = new ArrayList<>();
 
     public static void main(String[] args) {
         Potere potere1 = new Potere("Amministratore");
         Potere potere2 = new Potere("User");
         Admin admin = new Admin("Alessandro", "D'Angelo", "AlessandroXXV", "1234", potere1);
 
-        User user = new User("Riccardo", "D'Angelo", "Rick", "1234", potere2);
+        User user = new User("Riccardo", "D'Angelo", "Rick", "abc1234", potere2);
         listaUtenti.add(user);
         accessoAlSito();
 
@@ -34,6 +33,7 @@ public class Test {
         System.out.println("Ciao utente, se hai già un account inserisci UserName e Password, \n se sei nuovo registrati ");
         System.out.println("Effettua login --> 1");
         System.out.println("Effettua registrazione --> 2");
+        System.out.println("Esci --> 3");
         int scelta = scanner.nextInt();
 
         switch (scelta) {
@@ -44,6 +44,9 @@ public class Test {
             case 2:
                 registrati();
                 logIn();
+                break;
+            case 3:
+                System.out.println("Arrivederci");
                 break;
         }
         scanner.close();
@@ -57,23 +60,31 @@ public class Test {
         System.out.println("Inserisci username e password");
         System.out.print("Username: ");
         String username = scanner.nextLine();
+
         System.out.print("Password: ");
         String password = scanner.nextLine();
 
-        if(username.equals("AlessandroXXV") && password.equals("1234"))
-        {
+
+        boolean accessoRiuscito = false;
+
+        if (username.equals("AlessandroXXV") && password.equals("1234")) {
             System.out.println("Accesso ADMIN effettuato");
             operazioniAdmin();
-        }
-        else
-        {
+            accessoRiuscito = true;
+        } else {
             for (User user : listaUtenti) {
-                if(user.getUsername().equals(username) && user.getPassword().equals(password))
-                {
+                if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                     System.out.println("Accesso effettuato");
                     operazioniUtente();
+                    accessoRiuscito = true;
+                    break; // Esci dal ciclo una volta trovata una corrispondenza
                 }
             }
+        }
+
+        if (!accessoRiuscito) {
+            System.out.println("Username o password errati, Ritornerai al menu principale");
+            accessoAlSito();
         }
     }
 
@@ -83,13 +94,13 @@ public class Test {
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci nome, cognome, username e password");
-        System.out.println("Nome: ");
+        System.out.print("Nome: ");
         String nome = scanner.nextLine();
-        System.out.println("Cognome: ");
+        System.out.print("Cognome: ");
         String cognome = scanner.nextLine();
-        System.out.println("Username: ");
+        System.out.print("Username: ");
         String username = scanner.nextLine();
-        System.out.println("Password: ");
+        System.out.print("Password: ");
         String password = scanner.nextLine();
         Potere potere1 = new Potere("User");
 
@@ -110,7 +121,7 @@ public class Test {
         switch (scelta) {
             case 1:
                 Prodotto.VisualizzaProdotti();
-
+                operazioniUtente();s
             case 2:
                 logout();
                 break;

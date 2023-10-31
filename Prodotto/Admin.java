@@ -55,6 +55,12 @@ public class Admin {
     public void setPotere(Potere potere) {
         this.potere = potere;
     }
+    public String getPassword () {
+        return password;
+    }
+    public void setPassword (String password) {
+        this.password = password;
+    }
 }
 
 

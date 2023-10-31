@@ -16,9 +16,9 @@ public class User
 
 
 
-    public User(String string, String string2, String username, String password, Potere potere1) {
-        this.nome = string; 
-        this.cognome = string2; 
+    public User(String nome, String cognome, String username, String password, Potere potere1) {
+        this.nome = nome;
+        this.cognome = cognome;
         this.username = username;  
         this.password = password;
         this.potere = potere1;
@@ -37,20 +37,23 @@ public class User
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getCognome() {
         return cognome;
     }
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
+
+
     public String getUsername() {
         return username;
     }
     public void setUsername(String username) {
         this.username = username;
     }
-    public Object getPassword() {
-        return null;
+    public String getPassword() {
+        return password;
     }
     public void setPassword(String password) {
         this.password = password;
