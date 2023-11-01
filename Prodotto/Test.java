@@ -121,7 +121,7 @@ public class Test {
         switch (scelta) {
             case 1:
                 Prodotto.VisualizzaProdotti();
-                operazioniUtente();s
+                operazioniUtente();
             case 2:
                 logout();
                 break;
@@ -142,18 +142,21 @@ public class Test {
         switch (scelta) {
             case 1:
                 Prodotto.VisualizzaProdotti();
+                operazioniAdmin();
                 break;
             case 2:
                 Prodotto.AggiungiProdotti();
+                operazioniAdmin();
                 break;
             case 3:
                 Prodotto.RimuoviProdotti();
+                operazioniAdmin();
                 break;
             case 62:
-                //Logout();
+                logout();
                 break;
         }
-        scanner.close();
+        //scanner.close();
     }
 
     static void logout()
